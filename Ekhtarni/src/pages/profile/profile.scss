@@ -1,7 +1,14 @@
 page-profile {
-    img {
+    
+    .cover{
+        background-image:url("../assets/img/cover.png");
+        background-image: no-repeat;
+        
+        img {
         border-radius: 50%;
-        width: 25vw;
-        max-width: 128px;
+        width: 40vw;
+        max-width: 40vw;
+        margin-top: 20%;
+        }
     }
 }

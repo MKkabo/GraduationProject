@@ -1,3 +1,4 @@
+import { InterestPage } from './../pages/interest/interest';
 import { profilePage } from './../pages/profile/profile';
 import { CoursesPage } from './../pages/courses/courses';
 import { IntroPage } from './../pages/intro/intro';
@@ -26,7 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingsPage,
     IntroPage,
     CoursesPage,
-    profilePage
+    profilePage,
+    InterestPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingsPage,
     IntroPage,
     CoursesPage,
-    profilePage
+    profilePage,
+    InterestPage
   ],
   providers: [
     StatusBar,

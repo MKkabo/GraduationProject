@@ -8,40 +8,86 @@
 </ion-header>
 
 
-
-<ion-content padding>
-  
-  <ion-item>
-    <ion-label position="floating">Description</ion-label>
-    <ion-textarea></ion-textarea>
-  </ion-item>
-
-  <!-- Textarea in an item with a floating label -->
-<ion-item>
-  <ion-label position="floating">Description</ion-label>
-  <ion-textarea></ion-textarea>
-</ion-item>
-
-<!-- Disabled and readonly textarea in an item with a stacked label -->
-<ion-item>
-  <ion-label position="stacked">Summary</ion-label>
-  <ion-textarea
-    disabled
-    readonly
-    value="Ionic enables developers to build performant, high-quality mobile apps.">
-  </ion-textarea>
-</ion-item>
-
-<!-- Textarea that clears the value on edit -->
-<ion-item>
-  <ion-label>Comment</ion-label>
-  <ion-textarea clearOnEdit="true"></ion-textarea>
-</ion-item>
-
-<!-- Textarea with custom number of rows and cols -->
-<ion-item>
-  <ion-label>Notes</ion-label>
-  <ion-textarea rows="6" cols="20" placeholder="Enter any notes here..."></ion-textarea>
-</ion-item>
-
+<ion-content >
+    <ion-list>
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <ion-card-header class="card-header">
+                  <ion-item>
+                    <ion-avatar>
+                      <img src="../assets/img/avatar.jpeg">
+                    </ion-avatar>
+                    Company Name
+                  </ion-item>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item  >
+                      <h3>Job Title</h3>
+                    </ion-item>
+                    <ion-item >
+                      <h3>About Job</h3>
+                    </ion-item>
+                  </ion-list>
+                  <button ion-button block size="small">View</button>
+                </ion-card-content>
+                    
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+      <ion-list>
+          <ion-grid fixed>
+            <ion-row align-items-stretch>
+              <ion-col size="12" size-md="6">
+                <ion-card class="speaker-card">
+                  <ion-card-header>
+                    <ion-item detail="false" lines="none">
+                      <ion-avatar slot="start">
+                        <img src="../assets/img/avatar.jpeg">
+                      </ion-avatar>
+                      name
+                    </ion-item>
+                  </ion-card-header>
+      
+                  <ion-card-content>
+                    <ion-list>
+                      <ion-item >
+                        <h3>name</h3>
+                      </ion-item>
+      
+                      <ion-item >
+                        <h3>About name</h3>
+                      </ion-item>
+                    </ion-list>
+                  </ion-card-content>
+      
+                  <ion-row no-padding justify-content-center>
+                    <ion-col text-left size="4">
+                      <button ion-button fill="clear" size="small" color="primary">
+                        <ion-icon name="logo-twitter" slot="start"></ion-icon>
+                        Tweet
+                      </button>
+                    </ion-col>
+                    <ion-col text-center size="4">
+                      <button ion-button fill="clear" size="small" color="primary">
+                        <ion-icon name="share-alt" slot="start"></ion-icon>
+                        Share
+                      </button>
+                    </ion-col>
+                    <ion-col text-right size="4">
+                      <button ion-button fill="clear" size="small" color="primary">
+                        <ion-icon name="chatboxes" slot="start"></ion-icon>
+                        Contact
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-list>
 </ion-content>
