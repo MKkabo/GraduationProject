@@ -10,7 +10,8 @@ lw fel application pages LL admin for add w drop brdo eshta
 
 -registeration for first time 
 		1-regastration page
-		2-intrest page take input from users to know there intress 
+		2-intrest page take input from users to know there intress feha mslan picking list 3n fields el hwa 7abb ysht8l feha
+			like IT w Bussnies w gwahom mslan kam field tani 
 			zy netflix mslan test bt3o aw lw m3ndosh aw 2a el y3rfo y3ni
 		3-complete profile page "CV" input b2a personal inf,education,experaince,skills,(intresst mn page el intresst mslan)
 -Login 
