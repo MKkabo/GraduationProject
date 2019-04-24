@@ -1,5 +1,28 @@
 page-home {
 
+  
+      img{ 
+          
+        float:right
+        
+        }
+      .speaker-card ion-card-header {
+        padding: 0;
+        
+      }
+    
+      .speaker-card ion-card-header .item {
+        padding: 1px 16px;
+        text-align: middle;
+        
+      }
+      
+      .speaker-card ion-card-content {
+    
+      height: 100%;
+        padding: 0;
+      }
+      
 
 }
 
