@@ -1,9 +1,16 @@
 page-login {
 
-    .title{
-
+    .title {
         text-align: center;
+    }
 
+    .alert-danger {
+        background-color: rgba(231, 70, 69, 0.9);
+        color: white;
+        border-color: rgb(210, 70, 69);
+        padding: 1rem;
+        border-radius: 5px;
+        text-align: center;
     }
 
 }

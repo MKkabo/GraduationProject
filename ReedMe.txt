@@ -8,13 +8,13 @@ lw fel application pages LL admin for add w drop brdo eshta
 
 {{User}}
 
--registeration for first time 
+- registeration for first time 
 		1-regastration page
 		2-intrest page take input from users to know there intress feha mslan picking list 3n fields el hwa 7abb ysht8l feha
 			like IT w Bussnies w gwahom mslan kam field tani 
 			zy netflix mslan test bt3o aw lw m3ndosh aw 2a el y3rfo y3ni
 		3-complete profile page "CV" input b2a personal inf,education,experaince,skills,(intresst mn page el intresst mslan)
--Login 
+- Login 
 		1-beft7 el home "news Feed" aw "jobs" ka mol5as w mmkn y click yro7 le page for more detals y3ni zy mslan wazzuf 
 		2-beft7 courses same mol5as zy "ion-card" w 2dar a view more detals and give rates about course da 
 			-course fe detals page fe name w about w itnroducation video w duration

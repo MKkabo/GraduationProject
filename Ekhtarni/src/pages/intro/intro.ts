@@ -1,6 +1,7 @@
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DbProvider } from '../../providers/db/db';
 
 /**
  * Generated class for the IntroPage page.
@@ -16,14 +17,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class IntroPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad IntroPage');
+    this.db.getData().subscribe(data => {
+      this.db.setData(data);
+      // console.log(data);
+    })
   }
 
-  gotoRegister(){
+  gotoRegister() {
     this.navCtrl.setRoot(LoginPage)
   }
 

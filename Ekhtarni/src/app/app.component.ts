@@ -14,48 +14,46 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 
 export class MyApp {
-  rootPage:any = '';
+  rootPage: any = '';
 
-  SettingsPage=SettingsPage;
-  AboutPage=AboutPage;
-  profilePage=profilePage;
+  SettingsPage = SettingsPage;
+  AboutPage = AboutPage;
+  profilePage = profilePage;
 
 
-@ViewChild(Nav) nav:Nav;
+  @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform,statusBar: StatusBar, splashScreen: SplashScreen,public app: App,public menuCtrl:MenuController) {
-    if(window.localStorage.getItem("loggedIN"))
-    {
-      this.rootPage=TabsPage;
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public menuCtrl: MenuController) {
+    if (localStorage.getItem("user")) {
+      this.rootPage = TabsPage;
     }
-    else{
-      this.rootPage=IntroPage;
+    else {
+      this.rootPage = IntroPage;
     }
 
-    
+
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      
+
     });
-    
+
   }
-  
-  logout()
-  {
+
+  logout() {
     window.localStorage.removeItem("loggedIN");
     this.app.getRootNav().setRoot(LoginPage);
   }
 
-  onLoad(page:any) {
+  onLoad(page: any) {
 
     this.nav.push(page);
     this.menuCtrl.close();
- 
-   }
-   
-    
+
+  }
+
+
 }

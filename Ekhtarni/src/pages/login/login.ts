@@ -1,33 +1,33 @@
 import { RegisterPage } from './../register/register';
 import { Component } from '@angular/core';
-import { NavController,AlertController,ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { DbProvider } from '../../providers/db/db';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  username:any;
-  password:any;
-  constructor(public navCtrl: NavController, public forgotCtrl: AlertController,public toastCtrl: ToastController) {
-
-  }
-  
-  login()
-  {
-    if(this.username!="null" && this.password!="null")
-    {
-      window.localStorage.setItem("loggedIN","true");
-      this.navCtrl.setRoot(TabsPage);
-    }
-    else{
-      this.presentToast("Please enter username and password.");
-    }
+  // username: any;
+  // password: any;
+  error: any;
+  constructor(public navCtrl: NavController, public forgotCtrl: AlertController, public toastCtrl: ToastController, public db: DbProvider) {
 
   }
 
-   // go to register page
-   register() {
+  // login() {
+  //   if (this.username != "null" && this.password != "null") {
+  //     window.localStorage.setItem("loggedIN", "true");
+  //     this.navCtrl.setRoot(TabsPage);
+  //   }
+  //   else {
+  //     this.presentToast("Please enter username and password.");
+  //   }
+
+  // }
+
+  // go to register page
+  register() {
     this.navCtrl.setRoot(RegisterPage);
   }
 
@@ -76,4 +76,19 @@ export class LoginPage {
     });
     forgot.present();
   }
+
+  submitForm(data) {
+    let { username, password } = data.value;
+    let result = this.db.login(username, password)
+    if (!result.length) {
+      this.error = true;
+    } else {
+      this.error = false;
+      localStorage.setItem("user", JSON.stringify(result[0]));
+      localStorage.setItem("loggedIN", "true");
+      this.navCtrl.setRoot(TabsPage);
+    }
+
+  }
+
 }
