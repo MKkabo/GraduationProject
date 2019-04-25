@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DbProvider {
   data: any[];
+  user: any;
   constructor(public http: HttpClient) {
     console.log('Hello DbProvider Provider');
   }
@@ -29,6 +30,20 @@ export class DbProvider {
     if (user.length > 0) return user;
     else return [];
   }
+
+  setUser(user) {
+    this.user = user;
+  }
+
+  setUserProp(data, prop) {
+    this.user[prop] = data;
+  }
+
+  getUserData() {
+    return this.user;
+  }
+
+
 
 
 

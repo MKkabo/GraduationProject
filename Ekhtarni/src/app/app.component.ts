@@ -44,15 +44,14 @@ export class MyApp {
   }
 
   logout() {
-    window.localStorage.removeItem("loggedIN");
+    localStorage.removeItem("loggedIN");
+    localStorage.removeItem("user");
     this.app.getRootNav().setRoot(LoginPage);
   }
 
   onLoad(page: any) {
-
     this.nav.push(page);
     this.menuCtrl.close();
-
   }
 
 

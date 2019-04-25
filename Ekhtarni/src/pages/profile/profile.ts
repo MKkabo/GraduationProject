@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DbProvider } from '../../providers/db/db';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class profilePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
   }
 
   ionViewDidLoad() {
+    this.user = this.db.getUserData();
     console.log('ionViewDidLoad ProfilePage');
   }
 
