@@ -1,3 +1,5 @@
+import { JobsDetailsPage } from './../pages/jobs-details/jobs-details';
+import { CDetailsPage } from './../pages/c-details/c-details';
 import { InterestPage } from './../pages/interest/interest';
 import { profilePage } from './../pages/profile/profile';
 import { CoursesPage } from './../pages/courses/courses';
@@ -28,7 +30,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     IntroPage,
     CoursesPage,
     profilePage,
-    InterestPage
+    InterestPage,
+    CDetailsPage,
+    JobsDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     IntroPage,
     CoursesPage,
     profilePage,
-    InterestPage
+    InterestPage,
+    CDetailsPage,
+    JobsDetailsPage,
   ],
   providers: [
     StatusBar,

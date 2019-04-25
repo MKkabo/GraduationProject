@@ -1,9 +1,8 @@
-import { CDetailsPage } from './../c-details/c-details';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CoursesPage page.
+ * Generated class for the CDetailsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,19 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-courses',
-  templateUrl: 'courses.html',
+  selector: 'page-c-details',
+  templateUrl: 'c-details.html',
 })
-export class CoursesPage {
+export class CDetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  onLoad(page:any) {
-
-    this.navCtrl.push(CDetailsPage);
-  
- 
-   }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CDetailsPage');
+  }
 
 }

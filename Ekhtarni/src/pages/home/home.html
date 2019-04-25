@@ -5,13 +5,13 @@
     </button>
     <ion-title text-center>Home</ion-title>
   </ion-navbar>
-  <ion-searchbar animated ></ion-searchbar>
+  <ion-searchbar animated></ion-searchbar>
 
  
 </ion-header>
 
 
-<ion-content  class="outer-content">
+<ion-content >
             <ion-list>
                 <ion-grid >
                   <ion-row align-items-stretch>
@@ -42,7 +42,7 @@
             
                         <ion-row justify-content-center>
                           <ion-col text-left size="4">
-                            <button fill="clear" full color="primary" ion-button>
+                            <button fill="clear" full color="primary" ion-button (click)="onLoad()">
                               
                               View
                             </button>
@@ -84,7 +84,7 @@
               
                           <ion-row justify-content-center>
                             <ion-col text-left size="4">
-                              <button fill="clear" full color="primary" ion-button>
+                              <button fill="clear" full color="primary" ion-button (click)="onLoad()">
                                 
                                 View
                               </button>
@@ -126,10 +126,10 @@
                 
                             <ion-row justify-content-center>
                               <ion-col text-left size="4">
-                                <button fill="clear" full color="primary" ion-button>
+                                <button fill="clear" full color="primary" ion-button (click)="onLoad()">
                                   
                                   View
-                                </button>
+                                </button >
     
                               </ion-col>
                             </ion-row>
@@ -168,8 +168,7 @@
                   
                               <ion-row justify-content-center>
                                 <ion-col text-left size="4">
-                                  <button fill="clear" full color="primary" ion-button>
-                                    
+                                  <button fill="clear" full color="primary" ion-button (click)="onLoad()">
                                     View
                                   </button>
       
