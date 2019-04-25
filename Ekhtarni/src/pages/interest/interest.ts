@@ -51,9 +51,11 @@ export class InterestPage {
 
 
   submitForm(data) {
-    let { value } = data;
-    let selectedItems = Object.entries(value).filter(it => it[1]).map(it => it[0]);
+    // let { value } = data;
+    // console.log(this.form);
+    let selectedItems = this.form.filter(it => it.isChecked).map(it => it.val);
     this.db.setUserProp(selectedItems, 'interests');
+    console.log(this.db.getUserData());
     this.navCtrl.setRoot(TabsPage);
   }
 

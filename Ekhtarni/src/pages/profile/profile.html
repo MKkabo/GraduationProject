@@ -8,7 +8,7 @@
 
 <ion-content padding text-center>
   <ng-template [ngIf]="user">
-
+    <div>{{ user | json }}</div>
     <div class="cover">
       <img src="../assets/img/avatar.jpeg">
     </div>
@@ -133,13 +133,20 @@
       </ion-card-header>
       <ion-card-content>
 
-        <ion-list *ngIf="user">
-          <ion-item *ngFor="let interest of user.interests">
+        <ion-list>
+          <!-- {{ interests | json }} -->
+          <ion-item *ngFor="let int of user.interests">
             <ion-label text-wrap>
+                {{ int }}
+                <ion-icon name="star"></ion-icon>
             </ion-label>
-            - {{ interest }} <ion-icon name="star"></ion-icon>
           </ion-item>
-
+          <!-- If not working un comment these from herer -> -->
+          <!-- <div *ngFor="let int of user.interests">
+            <span>{{ int }}</span>
+            <ion-icon name="star"></ion-icon>
+          </div> -->
+          <!-- to here -->
           <!-- <ion-item>
             <ion-label text-wrap>
               level of experanice :
