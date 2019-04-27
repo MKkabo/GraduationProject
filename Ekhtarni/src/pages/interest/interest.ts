@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
 import { TabsPage } from '../tabs/tabs';
 
-/**
- * Generated class for the InterestPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -18,10 +12,6 @@ import { TabsPage } from '../tabs/tabs';
 export class InterestPage {
   form = [
     {
-      val: 'Information System',
-      isChecked: false
-    },
-    {
       val: 'Buisness',
       isChecked: false
     },
@@ -30,15 +20,19 @@ export class InterestPage {
       isChecked: false
     },
     {
-      val: 'DataBase',
+      val: 'Information System',
       isChecked: false
     },
     {
-      val: 'Front-End',
+      val: 'ERP',
       isChecked: false
     },
     {
-      val: 'Back-End',
+      val: 'Web-Development',
+      isChecked: false
+    },
+    {
+      val: 'Security',
       isChecked: false
     }
   ]

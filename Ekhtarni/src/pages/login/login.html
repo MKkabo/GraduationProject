@@ -1,19 +1,8 @@
-<!--<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-navbar>
-</ion-header>
--->
 <ion-content padding class="animated fadeIn login auth-page">
   <div class="login-content">
     <!-- Logo -->
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
-      <h2 ion-text class="text-primary">
-        Welcome To <strong>Ekhtarni</strong>
-      </h2>
     </div>
 
     <div class="alert-danger" *ngIf="error">Something Went Wrong!</div>
@@ -43,17 +32,5 @@
     <div text-center margin-top>
       <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
     </div>
-
-
   </div>
-  <!--
-  <ion-list>
-  <ion-item>
-    <ion-input type="text" value="" [(ngModel)]="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
-  </ion-item>
-</ion-list>
--->
 </ion-content>

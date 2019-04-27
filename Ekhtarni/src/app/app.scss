@@ -287,7 +287,7 @@
     background-color: #fff;
     &::after {
       content: "";
-      background: url("../assets/img/bg.jpg") no-repeat;
+      background: url("../assets/img/bg3.png") no-repeat;
       background-size: cover;
       top: 0;
       left: 0;
@@ -301,27 +301,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      //background: rgba(50, 10, 92, .4);
+      
   
       .login-content {
         width: 86%;
-        margin-top: 0px;
         margin-left: auto;
         margin-right: auto;
+    
+        
         .logo {
-          width: 100px;
-          height: 100px;
-          margin: 10px auto 0;
-          border-radius: 10%;
+          width: 200px;
+          height: 200px;
+          margin: 5px auto 0;
           background: url("../assets/img/ionic3-ico.png") no-repeat;
           background-size: 100%;
           display: block;
-          
+         
         }
   
         .list-form {
-          padding: 0;
-          margin-bottom: 25px;
+         
   
           ion-item {
             background: none;
