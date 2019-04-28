@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the JobsDetailsPage page.
+ * Generated class for the RatePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,20 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-jobs-details',
-  templateUrl: 'jobs-details.html',
+  selector: 'page-rate',
+  templateUrl: 'rate.html',
 })
-export class JobsDetailsPage {
-
-  isFavorite = false;
+export class RatePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  toggleFavorite() {
-    
-      this.isFavorite = true;
-    
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RatePage');
+  }
 
-}
 }

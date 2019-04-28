@@ -1,4 +1,4 @@
-import { JobsDetailsPage } from './../pages/jobs-details/jobs-details';
+import { JobDetailsPage } from './../pages/job-details/job-details';
 import { CDetailsPage } from './../pages/c-details/c-details';
 import { InterestPage } from './../pages/interest/interest';
 import { profilePage } from './../pages/profile/profile';
@@ -19,6 +19,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DbProvider } from '../providers/db/db';
 import { FormsModule } from '@angular/forms'
+import { NewsDetailsPage } from '../pages/news-details/news-details';
+import { RatePage } from '../pages/rate/rate';
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +35,9 @@ import { FormsModule } from '@angular/forms'
     profilePage,
     InterestPage,
     CDetailsPage,
-    JobsDetailsPage,
+    NewsDetailsPage,
+    RatePage,
+    JobDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,10 @@ import { FormsModule } from '@angular/forms'
     profilePage,
     InterestPage,
     CDetailsPage,
-    JobsDetailsPage,
+    NewsDetailsPage,
+    RatePage,
+    JobDetailsPage,
+    
   ],
   providers: [
     StatusBar,
