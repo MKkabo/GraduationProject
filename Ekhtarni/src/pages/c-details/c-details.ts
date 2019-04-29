@@ -18,11 +18,11 @@ export class CDetailsPage {
   randRate: number | string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.course = navParams.get('course');
-    this.randRate =  (Math.random() * 5).toFixed(1) 
+    this.randRate =  (Math.random() * 5).toFixed(1);
   }
-
+  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CDetailsPage');
+    this.course = this.navParams.get('course');
   }
 
 }
