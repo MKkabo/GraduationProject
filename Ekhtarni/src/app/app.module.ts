@@ -21,6 +21,7 @@ import { DbProvider } from '../providers/db/db';
 import { FormsModule } from '@angular/forms'
 import { NewsDetailsPage } from '../pages/news-details/news-details';
 import { RatePage } from '../pages/rate/rate';
+import { StoreProvider } from '../providers/store/store';
 @NgModule({
   declarations: [
     MyApp,
@@ -68,7 +69,8 @@ import { RatePage } from '../pages/rate/rate';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DbProvider
+    DbProvider,
+    StoreProvider
   ]
 })
 export class AppModule { }

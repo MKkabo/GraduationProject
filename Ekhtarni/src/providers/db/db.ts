@@ -1,12 +1,14 @@
+import { StoreProvider } from './../store/store';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
 @Injectable()
 export class DbProvider {
+  base_url: string = 'http://localhost:3000/api'
   data: any[];
   user: any;
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private store: StoreProvider) {
     console.log('Hello DbProvider Provider');
   }
 
@@ -18,25 +20,53 @@ export class DbProvider {
     this.data = data;
   }
 
-  login(username, password) {
-    let user = this.data.filter((user) => {
-      return user.name === username && user.password === password
-    });
-    if (user.length > 0) return user;
-    else return [];
+  login(email, password) {
+    // let user = this.data.filter((user) => {
+    //   return user.name === username && user.password === password
+    // });
+    return this.http.post(`${this.base_url}/users/login`, { email, password });
+    // if (user.length > 0) return user;
+    // else return [];
   }
 
-  setUser(user) {
-    this.user = user;
+  register(body) {
+    console.log(body);
+    return this.http.post(`${this.base_url}/users/signup`, body);
   }
 
-  setUserProp(data, prop) {
-    this.user[prop] = data;
+
+  completeProfile(fd: FormData) {
+    return this.http.post(`${this.base_url}/profile/complete`, fd);
   }
 
-  getUserData() {
-    return this.user;
+
+  getProfile() {
+    return this.http.get(`${this.base_url}/profile/${this.store.getUserId()}`);
   }
+
+
+  getCourses() {
+    console.log('Inside');
+    return this.http.get(`${this.base_url}/courses/all`);
+  }
+
+
+  searchCourses(search) {
+    let body = { search };
+    return this.http.post(`${this.base_url}/courses/search`, body);
+  }
+
+  // setUser(user) {
+  //   this.user = user;
+  // }
+
+  // setUserProp(data, prop) {
+  //   this.user[prop] = data;
+  // }
+
+  // getUserData() {
+  //   return this.user;
+  // }
 
 
 

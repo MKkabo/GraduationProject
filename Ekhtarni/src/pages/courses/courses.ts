@@ -1,3 +1,4 @@
+import { DbProvider } from './../../providers/db/db';
 import { CDetailsPage } from './../c-details/c-details';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -15,15 +16,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'courses.html',
 })
 export class CoursesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  courses: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
   }
 
-  onLoad(page:any) {
+  ionViewDidLoad() {
+    console.log('welcome to courses');
+    this.db.getCourses().subscribe(res => {
+      if (res['success'] === true) {
+        this.courses = res['courses'];
+      }
+    })
+  }
 
-    this.navCtrl.push(CDetailsPage);
-  
- 
-   }
+  onLoad(course: any) {
+
+    this.navCtrl.push(CDetailsPage, {
+      course: course
+    });
+
+
+  }
 
 }

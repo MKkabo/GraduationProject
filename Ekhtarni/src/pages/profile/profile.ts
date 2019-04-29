@@ -11,14 +11,19 @@ import { DbProvider } from '../../providers/db/db';
 export class profilePage {
   user: any;
   interests: string[];
-  data = ['Data', 'Databse']
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
   }
 
   ionViewDidLoad() {
-    this.user = this.db.getUserData();
-    this.interests = this.user.interests;
-    console.log('ionViewDidLoad ProfilePage');
+    this.db.getProfile().subscribe(res => {
+      console.log(res);
+      if(res['success'] === true) {
+        this.user = res['profile'];
+      }
+    })
+    // this.user = this.db.getUserData();
+    // this.interests = this.user.interests;
+    // console.log('ionViewDidLoad ProfilePage');
   }
 
 }

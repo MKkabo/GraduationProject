@@ -1,46 +1,43 @@
 <ion-header>
 
-  <ion-navbar>
-        <!--{{course name}}--->
-    <ion-title>Details</ion-title>
+  <ion-navbar *ngIf="course">
+    <ion-title>{{ course.name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-   
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col  text-right >
-              <ion-icon name="star" color="danger"  class="icon-star"></ion-icon><!--{{Rate ****}}--->
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <h1>Course Name DB</h1>
-        <p>Catergory :DB</p>
-        
-           Duration &ndash; Hours
-          <br /> location : DB
-      
-      <ion-list>
-        
-       <ion-item>
-      <ion-label>About that course</ion-label>
-       </ion-item>
-       
-       <p>
-          this course talk about this course you will learn course and will be good for The Ionic Conference is a one-day conference featuring talks from the Ionic team. It is focused on Ionic applications being
-    built with Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2, Angular concepts, Webpack, Sass, and many
-    other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers
-    – making this the largest Ionic conference ever!
-      </p>
+  <ng-template [ngIf]="course">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+        <ion-col text-right>
+          <span class="rate-col">
+            {{ randRate }}
+          </span>
+          <!-- <ion-icon name="star" color="danger" class="icon-star"></ion-icon> -->
+          <!--{{Rate ****}}--->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h1>{{ course.name }}</h1>
+    <p>Catergory: {{ course.category }}</p>
+    <p>Location: {{ course.location }}</p>
+    <p> Duration: {{ course.duration }} {{ course.duration > 1 ? 'weeks' : 'week'  }}</p>
+    <ion-list>
+      <ion-item>
+        <ion-label>About that course</ion-label>
+      </ion-item>
+
+      <p>{{ course.about }}</p>
       <ion-item></ion-item>
       <ion-item text-center>
-        <button  ion-button>Rate Course</button>
+        <button ion-button>Rate Course</button>
       </ion-item>
-      </ion-list>
+    </ion-list>
+  </ng-template>
 
 </ion-content>

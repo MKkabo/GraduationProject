@@ -6,4 +6,13 @@ page-c-details {
         font-size: 35px;
         transition: transform 0.3s ease;
       }
+    
+      .col span.rate-col {
+        background-color: rgb(42, 220, 113);
+        padding: .5rem 1.25rem;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+      }
 }

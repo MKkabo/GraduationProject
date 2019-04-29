@@ -1,3 +1,4 @@
+import { StoreProvider } from './../../providers/store/store';
 import { RegisterPage } from './../register/register';
 import { Component } from '@angular/core';
 import { NavController, AlertController, ToastController } from 'ionic-angular';
@@ -11,7 +12,7 @@ export class LoginPage {
   // username: any;
   // password: any;
   error: any;
-  constructor(public navCtrl: NavController, public forgotCtrl: AlertController, public toastCtrl: ToastController, public db: DbProvider) {
+  constructor(public navCtrl: NavController, public forgotCtrl: AlertController, public toastCtrl: ToastController, public db: DbProvider, private store: StoreProvider) {
 
   }
 
@@ -78,16 +79,27 @@ export class LoginPage {
   }
 
   submitForm(data) {
-    let { username, password } = data.value;
-    let result = this.db.login(username, password)
-    if (!result.length) {
-      this.error = true;
-    } else {
-      this.error = false;
-      localStorage.setItem("user", JSON.stringify(result[0]));
-      localStorage.setItem("loggedIN", "true");
-      this.navCtrl.setRoot(TabsPage);
-    }
+    let { email, password } = data.value;
+    this.db.login(email, password).subscribe(res => {
+      console.log(res);
+      if(res['success'] === true) {
+        let { id } = res['user'];
+        this.error = false;
+        this.store.setUser(id);
+        this.navCtrl.setRoot(TabsPage);
+      } else {
+        this.error = true;
+      }
+    });
+    // let result = this.db.login(username, password)
+    // if (!result.length) {
+    //   this.error = true;
+    // } else {
+    //   this.error = false;
+    //   localStorage.setItem("user", JSON.stringify(result[0]));
+    //   localStorage.setItem("loggedIN", "true");
+    //   this.navCtrl.setRoot(TabsPage);
+    // }
 
   }
 
