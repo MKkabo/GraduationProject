@@ -13,6 +13,8 @@ router.post('/insert', (req, res, next) => {
         company_name: req.body.company_name || '',
         requirements: req.body.requirements || '',
         about: req.body.about || '',
+        image: req.body.image || '',
+        location: req.body.location || '',
     }
 
     let sql = `INSERT INTO jobs SET ?`;

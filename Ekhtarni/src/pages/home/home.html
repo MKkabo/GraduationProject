@@ -13,13 +13,22 @@
       </button>
   </ion-buttons>
   </ion-navbar>
-  
+ <!-- <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button value="Jobs" (click)="show(jobDetailsPage)">
+        Jobs
+      </ion-segment-button>
+      <ion-segment-button value="News" (click)="show(jobDetailsPage)">
+        NEWS
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
- 
+ -->
 </ion-header>
 
 
-<ion-content >
+<ion-content fullscreen>
   
             <ion-list>
                 <ion-grid>
@@ -57,67 +66,5 @@
                 </ion-grid>
               </ion-list>
 
-                    <ion-card> 
-                      <ion-card-content>
-                          <ion-item>
-                            <img src="../assets/img/nw.jpg">
-                            </ion-item>
-                        <ion-item text-wrap>
-                       <p> Keep close to Nature's heart... and break clear away, once in awhile,
-                        and climb a mountain or spend a week in the woods. Wash your spirit clean.</p>
-                      </ion-item>
-                      </ion-card-content>
-                      <button fill="clear" full color="primary" ion-button (click)="onLoad(newsDetailsPage)"> 
-                          View
-                        </button>
-                    </ion-card>
-                    <ion-list>
-                      <ion-grid>
-                        <ion-row align-items-stretch>
-                          <ion-col>
-                            <ion-card class="card">
-                                <ion-toolbar color="danger">
-                                    <ion-title text-center>Job Opportunity</ion-title>
-                                  </ion-toolbar>
-                              <ion-card-header>
-                                <ion-item detail="false" lines="none">
-                                  <ion-avatar slot="start">
-                                    <img src="../assets/img/cm.png">
-                                   <h1>Company Name</h1>
-                                  </ion-avatar>
-                                </ion-item>
-                              </ion-card-header>
-                  
-                              <ion-card-content>
-                                <ion-list>
-                                  <ion-item>
-                                    <h3>Job Title :</h3>
-                                  </ion-item>
-                                  <ion-item>
-                                  <h3>Job Field :</h3>
-                                </ion-item>
-                                </ion-list>
-                              </ion-card-content>
-                                  <button fill="clear" full color="primary" ion-button (click)="onLoad(jobDetailsPage)"> 
-                                    View
-                                  </button>
-                            </ion-card>
-                          </ion-col>
-                        </ion-row>
-                      </ion-grid>
-                    </ion-list>
-                    <ion-card> 
-                      <ion-card-content>
-                          <ion-item>
-                            <img src="../assets/img/nw.jpg">
-                            </ion-item>
-                        <ion-item text-wrap>
-                       <p> Keep close to Nature's heart... and break clear away, once in awhile,
-                        and climb a mountain or spend a week in the woods. Wash your spirit clean.</p>
-                      </ion-item>
-                      </ion-card-content>
-                      <button fill="clear" full color="primary" ion-button (click)="onLoad(newsDetailsPage)"> 
-                          View
-                        </button>
-                    </ion-card>
+
 </ion-content>
