@@ -28,13 +28,13 @@
 </ion-header>
 
 
-<ion-content fullscreen>
-  
+<ion-content >
+  <ng-template [ngIf]="jobs"> 
             <ion-list>
                 <ion-grid>
                   <ion-row align-items-stretch>
                     <ion-col>
-                      <ion-card class="card">
+                      <ion-card class="card"  *ngFor="let job of jobs">
                           <ion-toolbar color="danger">
                               <ion-title text-center>Job Opportunity</ion-title>
                             </ion-toolbar>
@@ -42,7 +42,7 @@
                           <ion-item detail="false" lines="none">
                             <ion-avatar slot="start">
                               <img src="../assets/img/cm.png">
-                             <h1>Company Name</h1>
+                             <h1>{{ jobs.company_name }}</h1>
                             </ion-avatar>
                           </ion-item>
                         </ion-card-header>
@@ -50,7 +50,7 @@
                         <ion-card-content>
                           <ion-list>
                             <ion-item>
-                              <h3>Job Title :</h3>
+                              <h3>Job Title : {{ jobs.job_title }}</h3>
                             </ion-item>
                             <ion-item>
                             <h3>Job Field :</h3>
@@ -66,5 +66,5 @@
                 </ion-grid>
               </ion-list>
 
-
+            </ng-template>
 </ion-content>

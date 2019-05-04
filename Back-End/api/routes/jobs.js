@@ -5,7 +5,7 @@ const upload = require('../controllers/upload');
 const db = require('../db');
 
 
-router.post('/insert', (req, res, next) => {
+router.post('/insert', upload.single('image'), (req, res, next) => {
 
     let job = {
         job_title: req.body.job_title || '',
@@ -13,8 +13,8 @@ router.post('/insert', (req, res, next) => {
         company_name: req.body.company_name || '',
         requirements: req.body.requirements || '',
         about: req.body.about || '',
-        image: req.body.image || '',
         location: req.body.location || '',
+        image: req.file.path || '',
     }
 
     let sql = `INSERT INTO jobs SET ?`;
