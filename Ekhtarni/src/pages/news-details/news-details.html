@@ -8,15 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-card> 
+    <ng-template [ngIf]="newsfeeds"> 
+  <ion-card *ngFor="let newsfeed of newsfeeds" (click)="push($event, newsfeeds)"> 
     <ion-card-content>
         <ion-item>
-          <img src="../assets/img/nw.jpg">
+          <img src="http://localhost:3000/{{ newsfeed.image }}">
           </ion-item>
       <ion-item text-wrap>
-     <p> Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.</p>
+     <p>{{  newsfeed.body }}</p>
     </ion-item>
     </ion-card-content>
   </ion-card>
+</ng-template>
 </ion-content>

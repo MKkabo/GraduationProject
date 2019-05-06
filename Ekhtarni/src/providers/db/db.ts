@@ -49,9 +49,15 @@ export class DbProvider {
     console.log('Inside');
     return this.http.get(`${this.base_url}/courses/all`);
   }
+
   getJobs() {
     console.log('Inside');
     return this.http.get(`${this.base_url}/jobs/all`);
+  }
+
+  getNewsfeed() {
+    console.log('Inside');
+    return this.http.get(`${this.base_url}/newsfeed/all`);
   }
 
 

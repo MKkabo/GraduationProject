@@ -1,3 +1,4 @@
+import { DbProvider } from './../../providers/db/db';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NewsDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+      newsfeeds:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
   }
 
+
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsDetailsPage');
+    console.log('Welcome to newsfeeds');
+    this.db.getNewsfeed().subscribe(res => {
+      console.log(res);
+      if (res['success'] === true) {
+        this.newsfeeds = res['newsfeed'];
+      }
+    })
   }
+  push(event,newsfeed:any){
+
+    this.navCtrl.push(newsfeed);
+  }
+
 
 }
