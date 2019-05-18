@@ -28,13 +28,15 @@ export class NewsDetailsPage {
     this.db.getNewsfeed().subscribe(res => {
       console.log(res);
       if (res['success'] === true) {
-        this.newsfeeds = res['newsfeed'];
+        this.newsfeeds = res['newsfeeds'];
       }
     })
   }
-  push(event,newsfeed:any){
+  onLoad(newsfeed:any){
 
-    this.navCtrl.push(newsfeed);
+    this.navCtrl.push(newsfeed,{
+      newsfeed: newsfeed
+    });
   }
 
 

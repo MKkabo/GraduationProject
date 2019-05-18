@@ -39,10 +39,11 @@
                               <ion-title text-center>Job Opportunity</ion-title>
                             </ion-toolbar>
                         <ion-card-header>
-                          <ion-item detail="false" lines="none">
+                          <ion-item  lines="none">
                             <ion-avatar slot="start">
                               <img src="../assets/img/cm.png">
-                             <h1>{{ jobs.company_name }}</h1>
+       
+                             <h1>{{ job.company_name }}</h1>
                             </ion-avatar>
                           </ion-item>
                         </ion-card-header>
@@ -50,14 +51,14 @@
                         <ion-card-content>
                           <ion-list>
                             <ion-item>
-                              <h3>Job Title : {{ jobs.job_title }}</h3>
+                              <h3>Job Title : {{ job.job_title }}</h3>
                             </ion-item>
                             <ion-item>
-                            <h3>Job Field :</h3>
+                            <h3>Job Field : {{ job.job_field }}</h3>
                           </ion-item>
                           </ion-list>
                         </ion-card-content>
-                            <button fill="clear" full color="primary" ion-button (click)="onLoad(jobDetailsPage)"> 
+                            <button fill="clear" full color="primary" ion-button (click)="onLoad(jobDetailsPage,job)"> 
                               View
                             </button>
                       </ion-card>

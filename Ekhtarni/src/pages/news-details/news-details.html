@@ -7,15 +7,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
     <ng-template [ngIf]="newsfeeds"> 
-  <ion-card *ngFor="let newsfeed of newsfeeds" (click)="push($event, newsfeeds)"> 
+  <ion-card *ngFor="let newsfeed of newsfeeds"> 
     <ion-card-content>
         <ion-item>
           <img src="http://localhost:3000/{{ newsfeed.image }}">
           </ion-item>
       <ion-item text-wrap>
-     <p>{{  newsfeed.body }}</p>
+     <p>{{ newsfeed.body }}</p>
     </ion-item>
     </ion-card-content>
   </ion-card>
