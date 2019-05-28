@@ -1,6 +1,6 @@
 page-home {
 
-  
+
 
   ion-icon{
     font-size: 25px;
@@ -14,21 +14,27 @@ page-home {
         
         }
       .card ion-card-header {
-        padding: 0;
+        padding: 10px 0px 0px 30px;
+        
         
       }
     
       .card ion-card-header .item {
         padding: 1px 16px;
-        text-align: middle;
-        
+       
+       
+    
       }
       
       .card ion-card-content {
     
-      height: 100%;
-        padding: 0;
+        
+        padding: 10px;
+        
+      
+
       }
+      
   
 
 }
