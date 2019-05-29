@@ -1,7 +1,7 @@
 import { DbProvider } from './../../providers/db/db';
 import { CDetailsPage } from './../c-details/c-details';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the CoursesPage page.
@@ -18,6 +18,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CoursesPage {
   courses: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
+
+    
+
   }
 
   ionViewDidLoad() {

@@ -1,3 +1,4 @@
+import { PopoverComponent } from './../components/popover/popover';
 import { JobDetailsPage } from './../pages/job-details/job-details';
 import { CDetailsPage } from './../pages/c-details/c-details';
 import { InterestPage } from './../pages/interest/interest';
@@ -6,7 +7,7 @@ import { CoursesPage } from './../pages/courses/courses';
 import { IntroPage } from './../pages/intro/intro';
 import { SettingsPage } from './../pages/settings/settings';
 import { RegisterPage } from './../pages/register/register';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler ,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms'
 import { NewsDetailsPage } from '../pages/news-details/news-details';
 import { RatePage } from '../pages/rate/rate';
 import { StoreProvider } from '../providers/store/store';
+import { StarRatingModule } from 'ionic3-star-rating';
 @NgModule({
   declarations: [
     MyApp,
@@ -39,12 +41,15 @@ import { StoreProvider } from '../providers/store/store';
     NewsDetailsPage,
     RatePage,
     JobDetailsPage,
+    RatePage,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    StarRatingModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,6 +68,8 @@ import { StoreProvider } from '../providers/store/store';
     NewsDetailsPage,
     RatePage,
     JobDetailsPage,
+    RatePage,
+    PopoverComponent
     
   ],
   providers: [
@@ -71,6 +78,8 @@ import { StoreProvider } from '../providers/store/store';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DbProvider,
     StoreProvider
-  ]
+  ],
+  schemas: 
+  [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

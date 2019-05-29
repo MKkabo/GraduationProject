@@ -1,7 +1,8 @@
+import { PopoverComponent } from './../../components/popover/popover';
 import { DbProvider } from './../../providers/db/db';
 import { JobDetailsPage } from './../job-details/job-details';
 import { Component } from '@angular/core';
-import { NavController, App, NavParams } from 'ionic-angular';
+import { NavController, App, NavParams, PopoverController } from 'ionic-angular';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class HomePage {
     jobDetailsPage=JobDetailsPage;
     jobs: any;
     image: any;
-  constructor(public navCtrl: NavController,public app: App, public navParams: NavParams, public db: DbProvider) {
+   
+  constructor(public navCtrl: NavController,
+    public app: App, public navParams: NavParams, public db: DbProvider,public popoverCtrl: PopoverController) {
 
   }
 
@@ -37,5 +40,13 @@ export class HomePage {
     job: job});
 
    }
+
+  
+  async presentPopover(myEvent) {
+    const popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+      ev: myEvent
+    });
+  }
  
 }

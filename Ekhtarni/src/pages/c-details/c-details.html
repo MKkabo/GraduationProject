@@ -31,13 +31,13 @@
     <p> Duration: {{ course.duration }} {{ course.duration > 1 ? 'weeks' : 'week'  }}</p>
     <ion-list>
       <ion-item>
-        <ion-label>About that course</ion-label>
+        <ion-label>About this course</ion-label>
       </ion-item>
 
       <p text-center>{{ course.about }}</p>
       <ion-item></ion-item>
       <ion-item text-center>
-        <button ion-button>Rate Course</button>
+        <button ion-button (click)="rate()">Rate Course</button>
       </ion-item>
     </ion-list>
   </ng-template>
