@@ -82,11 +82,17 @@ export class LoginPage {
     let { email, password } = data.value;
     this.db.login(email, password).subscribe(res => {
       console.log(res);
-      if(res['success'] === true) {
+      if (res['success'] === true) {
         let { id } = res['user'];
         this.error = false;
         this.store.setUser(id);
-        this.navCtrl.setRoot(TabsPage);
+        // Store Image and name
+        this.db.getProfile().subscribe(result => {
+          let name = (`${result['profile']['first_name']} ${result['profile']['last_name']}`);
+          let image = result['profile']['image'];
+          this.store.setUserData({ name, image });
+          this.navCtrl.setRoot(TabsPage);
+        })
       } else {
         this.error = true;
       }

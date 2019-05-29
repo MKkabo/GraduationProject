@@ -23,5 +23,14 @@ export class StoreProvider {
   }
 
 
+  setUserData({ name, image }) {
+    let userData = JSON.stringify({ name, image })
+    localStorage.setItem('userData', userData);
+  }
+
+  getUserData() {
+    return JSON.parse(localStorage.getItem('userData'))
+  }
+
 
 }

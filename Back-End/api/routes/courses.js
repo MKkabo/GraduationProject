@@ -67,7 +67,7 @@ router.post('/search', (req, res, next) => {
         if (result && result.length) {
             return res.json({
                 success: true,
-                result
+                courses: result
             })
         } else {
             return res.json({

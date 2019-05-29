@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
+import { StoreProvider } from '../providers/store/store';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 export class MyApp {
   rootPage: any = '';
+  user: { name: string, image: string };
 
   SettingsPage = SettingsPage;
   AboutPage = AboutPage;
@@ -23,9 +25,10 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public menuCtrl: MenuController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public menuCtrl: MenuController, public store: StoreProvider) {
     if (localStorage.getItem("user")) {
       this.rootPage = TabsPage;
+      this.user = this.store.getUserData();
     }
     else {
       this.rootPage = IntroPage;

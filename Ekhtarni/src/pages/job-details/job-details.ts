@@ -11,14 +11,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class JobDetailsPage {
 
   job: any;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-      this.job= navParams.get('job');
+    this.job = navParams.get('job');
   }
 
   ionViewDidLoad() {
     this.job = this.navParams.get('job');
-    
   }
 
 }

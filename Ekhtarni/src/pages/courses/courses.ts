@@ -33,12 +33,13 @@ export class CoursesPage {
   }
 
   onLoad(course: any) {
-
     this.navCtrl.push(CDetailsPage, {
       course: course
     });
+  }
 
-
+  search(event) {
+    console.log(event);
   }
 
 }
