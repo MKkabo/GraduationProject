@@ -10,7 +10,8 @@ router.post('/add', (req, res, next) => {
     let rate = {
         user_id: req.body.user_id,
         course_id: req.body.course_id,
-        rate: req.body.rate
+        rate: req.body.rate,
+        description: req.body.description
     }
 
     let sql = `
@@ -35,21 +36,44 @@ router.post('/add', (req, res, next) => {
 
 })
 
+/**
+ * 
+ * @param {Array[]} arr 
+ * @param {*} key 
+ */
+function groupBy(arr, key) {
+    return arr.reduce((gp, item) => {
+        let value = item[key];
+        gp[value] = gp[value] || [];
+        gp[value].push(item);
+        return gp;
+    }, {})
+}
+
 
 
 router.get('/:courseId', (req, res, next) => {
     let { courseId } = req.params;
 
     let sql = `
-        SELECT (sum(rate) / 5) from rate where course_id = ${courseId}
+        SELECT * from rate where course_id = ${courseId}
     `;
+
 
     db.query(sql, (err, result) => {
         if (err) throw err;
-        if (result['affectedRows'] === 1) {
+        if (result && result.length) {
+            // collect rates
+            // let rates = Object.entries(groupBy(result, 'rate')).map(it => ({ [it[0]]: it[1].length }))
+            let rates = Object.entries(groupBy(result, 'rate')).reduce((acc, it) => { acc[it[0]] = it[1].length; return acc; }, {})
+            let lower = Object.values(rates).reduce((acc, it) => acc + it);
+            let upper = 0;
+            for (let key in rates) {
+                upper += rates[key] * key;
+            }
             res.status(200).json({
                 success: true,
-                rate: result
+                rate: upper / lower
             });
         } else {
             res.status(500).json({

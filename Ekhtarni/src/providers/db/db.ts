@@ -74,7 +74,7 @@ export class DbProvider {
     return this.http.post(`${this.base_url}/experience/add`, body);
   }
 
-  
+
   addEducation(body) {
     return this.http.post(`${this.base_url}/education/add`, body);
   }
@@ -85,22 +85,29 @@ export class DbProvider {
     return this.http.get(`${this.base_url}/experience/${id}`);
   }
 
-  
+
   getEducation() {
     let id = this.store.getUserId();
     return this.http.get(`${this.base_url}/education/${id}`);
   }
 
   editExperience(id, body) {
-    return this.http.post(`${this.base_url}/experience/${id}`, body);
+    return this.http.post(`${this.base_url}/experience/edit/${id}`, body);
   }
-  
-  
+
+
   editEducation(id, body) {
-    return this.http.post(`${this.base_url}/education/${id}`, body);
-
+    return this.http.post(`${this.base_url}/education/edit/${id}`, body);
   }
 
+
+  rateCourse(body) {
+    return this.http.post(`${this.base_url}/rate/add`, body);
+  }
+
+  getCourseRate(courseId) {
+    return this.http.get(`${this.base_url}/rate/${courseId}`);
+  }
 
 
   // setUser(user) {

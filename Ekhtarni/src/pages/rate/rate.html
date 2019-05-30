@@ -26,9 +26,9 @@
   <ion-item> 
      <ion-label text-center padding>Tell Us your Feedback?</ion-label>
   </ion-item>
-<ion-textarea placeholder="Enter your Review" text-center></ion-textarea>
+<ion-textarea placeholder="Enter your Review" text-center [(ngModel)]="description"></ion-textarea>
 
-  <button ion-button fill="outline" full>Submite</button>
+  <button ion-button fill="outline" full (click)="submitRate()">Submit</button>
 </ion-card>
 
 

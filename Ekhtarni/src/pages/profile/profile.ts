@@ -5,6 +5,7 @@ import { EditProfilePage } from './../edit-profile/edit-profile';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
+import { EditEducationPage } from '../edit-education/edit-education';
 
 @IonicPage()
 @Component({
@@ -56,6 +57,12 @@ export class profilePage {
 
   goToAddEducation() {
     this.navCtrl.push(AddEducationPage)
+  }
+
+  goToEditEducation(edu) {
+    this.navCtrl.push(EditEducationPage, {
+      education: edu
+    })
   }
 
 }

@@ -70,6 +70,9 @@
     </button>
     <ng-template [ngIf]="education">
       <ion-card *ngFor="let edu of education">
+        <button ion-button (click)="goToEditEducation(edu)">
+            <ion-icon name="create"></ion-icon>
+        </button>
         <ion-card-header>
           <ion-card-title>{{ edu.school_name }}</ion-card-title>
         </ion-card-header>

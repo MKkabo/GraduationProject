@@ -47,6 +47,7 @@ const jobsRoutes = require('./routes/jobs');
 const newsfeedRoutes = require('./routes/newsfeed');
 const experienceRoutes = require('./routes/experience');
 const educationRoutes = require('./routes/education');
+const rateRoutes = require('./routes/rate');
 
 app.use('/api/users', usersRoutes);
 app.use('/api/profile', profileRoutes);
@@ -56,6 +57,7 @@ app.use('/api/jobs', jobsRoutes);
 app.use('/api/newsfeed', newsfeedRoutes);
 app.use('/api/education', educationRoutes);
 app.use('/api/experience', experienceRoutes);
+app.use('/api/rate', rateRoutes);
 
 
 

@@ -58,14 +58,13 @@ router.post('/edit/:id', (req, res, next) => {
 
     let id = req.params.id;
     let education = {
-        user_id: req.body.user_id || '',
         school_name: req.body.school_name || '',
         degree: req.body.degree || '',
         startDate: req.body.startDate || '',
         endDate: req.body.endDate || '',
     }
 
-    let sql = `UPDATE education SET ? WHERE user_id=${id}`;
+    let sql = `UPDATE education SET ? WHERE id=${id}`;
 
     db.query(sql, education, (err, result) => {
         if (err) throw err;

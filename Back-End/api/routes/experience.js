@@ -60,7 +60,6 @@ router.post('/edit/:id', (req, res, next) => {
 
     let id = req.params.id;
     let experience = {
-        user_id: req.body.user_id || '',
         job_title: req.body.job_title || '',
         company_name: req.body.company_name || '',
         description: req.body.description || '',
@@ -68,7 +67,7 @@ router.post('/edit/:id', (req, res, next) => {
         endDate: req.body.endDate || '',
     }
 
-    let sql = `UPDATE experience SET ? WHERE user_id=${id}`;
+    let sql = `UPDATE experience SET ? WHERE id=${id}`;
 
     db.query(sql, experience, (err, result) => {
         if (err) throw err;
