@@ -26,13 +26,17 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public menuCtrl: MenuController, public store: StoreProvider) {
+    this.user = this.store.getUserData();
     if (localStorage.getItem("user")) {
       this.rootPage = TabsPage;
-      this.user = this.store.getUserData();
     }
     else {
       this.rootPage = IntroPage;
     }
+
+    this.store.stateSubscription().subscribe(value => {
+      this.user = this.store.getUserData();
+    })
 
 
 
@@ -45,10 +49,17 @@ export class MyApp {
     });
 
   }
+  ionViewDidLoad() {
+    if (localStorage.getItem("userData")) {
+      this.user = this.store.getUserData();
+    }
+  }
+
 
   logout() {
-    localStorage.removeItem("loggedIN");
+    // localStorage.removeItem("loggedIN");
     localStorage.removeItem("user");
+    localStorage.removeItem("userData");
     this.app.getRootNav().setRoot(LoginPage);
   }
 

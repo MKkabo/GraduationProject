@@ -91,7 +91,10 @@ export class LoginPage {
           let name = (`${result['profile']['first_name']} ${result['profile']['last_name']}`);
           let image = result['profile']['image'];
           this.store.setUserData({ name, image });
+          this.store.emitState();
+          // setTimeout(() => {
           this.navCtrl.setRoot(TabsPage);
+          // }, 1500);
         })
       } else {
         this.error = true;

@@ -24,6 +24,7 @@ import { NewsDetailsPage } from '../pages/news-details/news-details';
 import { RatePage } from '../pages/rate/rate';
 import { StoreProvider } from '../providers/store/store';
 import { StarRatingModule } from 'ionic3-star-rating';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 @NgModule({
   declarations: [
     MyApp,
@@ -42,7 +43,8 @@ import { StarRatingModule } from 'ionic3-star-rating';
     RatePage,
     JobDetailsPage,
     RatePage,
-    PopoverComponent
+    PopoverComponent,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
@@ -69,8 +71,8 @@ import { StarRatingModule } from 'ionic3-star-rating';
     RatePage,
     JobDetailsPage,
     RatePage,
-    PopoverComponent
-    
+    PopoverComponent,
+    EditProfilePage
   ],
   providers: [
     StatusBar,

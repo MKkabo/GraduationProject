@@ -39,6 +39,9 @@ export class DbProvider {
     return this.http.post(`${this.base_url}/profile/complete`, fd);
   }
 
+  updateProfile(body) {
+    return this.http.post(`${this.base_url}/profile/updateProfile`, body);
+  }
 
   getProfile() {
     return this.http.get(`${this.base_url}/profile/${this.store.getUserId()}`);
