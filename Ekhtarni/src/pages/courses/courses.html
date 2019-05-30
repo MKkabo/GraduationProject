@@ -5,12 +5,25 @@
     </button>
     <ion-title text-center>Courses</ion-title>
   </ion-navbar>
-  <ion-searchbar animated (ionChange)="search($event)"></ion-searchbar>
+  <ion-searchbar animated #searchBar (keyup.enter)="search(searchBar.value)" (ionClear)="cancelSearch()"></ion-searchbar>
 </ion-header>
 
 
 
 <ion-content >
+    <!-- <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="MM/YYYY" pickerFormat="M YYYY" min="1900" max="2020" #start (ionChange)="setDate('start',start)"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="MM/YYYY" pickerFormat="M YYYY" min="1900" max="2020" #end (ionChange)="setDate('end',end.value)"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime pickerFormat="M YYYY" min="1900" max="2020" [(ngModel)]="dates.test" #test (ionChange)="setDate('test',test._text)"></ion-datetime>
+    </ion-item> -->
+
   <ng-template [ngIf]="courses">
 
     <ion-card *ngFor="let course of courses">

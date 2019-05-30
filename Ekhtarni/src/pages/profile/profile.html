@@ -64,28 +64,55 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Education</ion-card-title>
-      </ion-card-header>
+    <h3>Education</h3>
+    <button ion-button (click)="goToAddEducation()">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+    <ng-template [ngIf]="education">
+      <ion-card *ngFor="let edu of education">
+        <ion-card-header>
+          <ion-card-title>{{ edu.school_name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                {{ edu.degree }} <br> {{ edu.startDate }} | {{ edu.endDate }}
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
 
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>
-              'School or univaristy'<br>helwan unvirsty <br>'2013-2015'
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>
-              'School or univaristy' <br>highschool<br>'2013-2015'
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
 
-    <ion-card>
+    <h3>Experience</h3>
+    <button ion-button (click)="goToAddExperience()">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+    <ng-template [ngIf]="experience">
+      <ion-card *ngFor="let exp of experience">
+        <ion-card-header>
+          <ion-card-title>{{ exp.job_title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                {{ exp.company_name }} <br> {{ exp.startDate }} | {{ exp.endDate }}
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <p style="white-space: pre-wrap">
+                {{ exp.description }}
+              </p>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+    <!-- <ion-card>
       <ion-card-header>
         <ion-card-title>Experience</ion-card-title>
       </ion-card-header>
@@ -94,7 +121,7 @@
         <ion-list>
           <ion-item>
             <ion-label>
-              experience place <br>Field <br>2013-2015
+
             </ion-label>
           </ion-item>
           <ion-item>
@@ -104,7 +131,7 @@
           </ion-item>
         </ion-list>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
     <ion-card>
       <ion-card-header>
         <ion-card-title>Featured Skills</ion-card-title>
@@ -133,8 +160,8 @@
           <!-- {{ interests | json }} -->
           <ion-item *ngFor="let int of user.interests.split(',')">
             <ion-label text-wrap>
-                {{ int }}
-                <ion-icon name="star"></ion-icon>
+              {{ int }}
+              <ion-icon name="star"></ion-icon>
             </ion-label>
           </ion-item>
           <!-- If not working un comment these from herer -> -->

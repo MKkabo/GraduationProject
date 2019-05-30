@@ -1,7 +1,7 @@
 import { DbProvider } from './../../providers/db/db';
 import { CDetailsPage } from './../c-details/c-details';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the CoursesPage page.
@@ -17,14 +17,27 @@ import { IonicPage, NavController, NavParams} from 'ionic-angular';
 })
 export class CoursesPage {
   courses: any;
+  dates = {
+    test: new Date('2018-07').toISOString()
+  };
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
 
-    
+
 
   }
 
   ionViewDidLoad() {
     console.log('welcome to courses');
+    // this.db.getCourses().subscribe(res => {
+    //   if (res['success'] === true) {
+    //     this.courses = res['courses'];
+    //   }
+    // })
+    this.loadCourses();
+  }
+
+
+  loadCourses() {
     this.db.getCourses().subscribe(res => {
       if (res['success'] === true) {
         this.courses = res['courses'];
@@ -39,7 +52,18 @@ export class CoursesPage {
   }
 
   search(event) {
-    console.log(event);
+    this.db.searchCourses(event).subscribe(res => {
+      this.courses = res['courses'];
+    })
+  }
+
+  cancelSearch() {
+    this.loadCourses();
+  }
+
+  setDate(key, value) {
+    this.dates[key] = value;
+    console.log(this.dates);
   }
 
 }

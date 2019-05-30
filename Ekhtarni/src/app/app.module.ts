@@ -1,3 +1,5 @@
+import { AddEducationPage } from './../pages/add-education/add-education';
+import { AddExperiencePage } from './../pages/add-experience/add-experience';
 import { PopoverComponent } from './../components/popover/popover';
 import { JobDetailsPage } from './../pages/job-details/job-details';
 import { CDetailsPage } from './../pages/c-details/c-details';
@@ -7,7 +9,7 @@ import { CoursesPage } from './../pages/courses/courses';
 import { IntroPage } from './../pages/intro/intro';
 import { SettingsPage } from './../pages/settings/settings';
 import { RegisterPage } from './../pages/register/register';
-import { NgModule, ErrorHandler ,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -44,7 +46,9 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     JobDetailsPage,
     RatePage,
     PopoverComponent,
-    EditProfilePage
+    EditProfilePage,
+    AddExperiencePage,
+    AddEducationPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,9 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     JobDetailsPage,
     RatePage,
     PopoverComponent,
-    EditProfilePage
+    EditProfilePage,
+    AddExperiencePage,
+    AddEducationPage
   ],
   providers: [
     StatusBar,
@@ -81,7 +87,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     DbProvider,
     StoreProvider
   ],
-  schemas: 
-  [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas:
+    [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

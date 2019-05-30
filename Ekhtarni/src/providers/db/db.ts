@@ -69,6 +69,40 @@ export class DbProvider {
     return this.http.post(`${this.base_url}/courses/search`, body);
   }
 
+
+  addExperience(body) {
+    return this.http.post(`${this.base_url}/experience/add`, body);
+  }
+
+  
+  addEducation(body) {
+    return this.http.post(`${this.base_url}/education/add`, body);
+  }
+
+
+  getExperience() {
+    let id = this.store.getUserId();
+    return this.http.get(`${this.base_url}/experience/${id}`);
+  }
+
+  
+  getEducation() {
+    let id = this.store.getUserId();
+    return this.http.get(`${this.base_url}/education/${id}`);
+  }
+
+  editExperience(id, body) {
+    return this.http.post(`${this.base_url}/experience/${id}`, body);
+  }
+  
+  
+  editEducation(id, body) {
+    return this.http.post(`${this.base_url}/education/${id}`, body);
+
+  }
+
+
+
   // setUser(user) {
   //   this.user = user;
   // }

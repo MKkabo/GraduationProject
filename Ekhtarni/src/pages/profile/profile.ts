@@ -1,3 +1,5 @@
+import { AddEducationPage } from './../add-education/add-education';
+import { AddExperiencePage } from './../add-experience/add-experience';
 import { EditProfilePage } from './../edit-profile/edit-profile';
 
 import { Component } from '@angular/core';
@@ -11,6 +13,8 @@ import { DbProvider } from '../../providers/db/db';
 })
 export class profilePage {
   user: any;
+  experience: any;
+  education: any;
   interests: string[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DbProvider) {
   }
@@ -18,10 +22,22 @@ export class profilePage {
   ionViewDidLoad() {
     this.db.getProfile().subscribe(res => {
       console.log(res);
-      if(res['success'] === true) {
+      if (res['success'] === true) {
         this.user = res['profile'];
       }
     })
+
+    this.db.getExperience().subscribe(res => {
+      console.log('experience', res);
+      this.experience = res['experiences'];
+    })
+
+
+    this.db.getEducation().subscribe(res => {
+      console.log('education', res);
+      this.education = res['educations'];
+    })
+
     // this.user = this.db.getUserData();
     // this.interests = this.user.interests;
     // console.log('ionViewDidLoad ProfilePage');
@@ -32,6 +48,14 @@ export class profilePage {
     this.navCtrl.push(EditProfilePage, {
       profile: this.user
     })
+  }
+
+  goToAddExperience() {
+    this.navCtrl.push(AddExperiencePage);
+  }
+
+  goToAddEducation() {
+    this.navCtrl.push(AddEducationPage)
   }
 
 }
