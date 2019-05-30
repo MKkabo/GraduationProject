@@ -15,20 +15,16 @@ page-profile {
 
     .edu{
 
-        margin: 0;
-        padding: 0;
-
-
-
+       
+           ion-title ion-button {
+                float: right;  
+                display: inline;
+            }
     }
 
 
 
     .exp{
-
-        margin: 0;
-        padding: 0;
-
 
 
 

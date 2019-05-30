@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2019 at 09:25 PM
+-- Generation Time: May 31, 2019 at 01:29 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -54,14 +54,52 @@ INSERT INTO `courses` (`id`, `name`, `category`, `course_level`, `about`, `durat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `followers`
+-- Table structure for table `education`
 --
 
-CREATE TABLE `followers` (
+CREATE TABLE `education` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `follower_id` int(11) NOT NULL
+  `school_name` varchar(255) NOT NULL,
+  `degree` varchar(255) NOT NULL,
+  `startDate` varchar(255) NOT NULL,
+  `endDate` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `education`
+--
+
+INSERT INTO `education` (`id`, `user_id`, `school_name`, `degree`, `startDate`, `endDate`) VALUES
+(2, 1, 'Tabry el hegaz', 'High School Diploma', '2014-12', '2015-12'),
+(3, 5, 'Tabry el hegaz', 'High School', '2015-07', '2016-09'),
+(4, 5, 'Helwan University', 'Baclerio\'s Degree', '2016-10', '2019-07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `experience`
+--
+
+CREATE TABLE `experience` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `job_title` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `startDate` varchar(255) DEFAULT NULL,
+  `endDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `experience`
+--
+
+INSERT INTO `experience` (`id`, `user_id`, `job_title`, `company_name`, `description`, `startDate`, `endDate`) VALUES
+(1, 1, 'Traniee', 'NBE(National Bank of Egypt)', '-Customer service\r\n-Operations\r\n-HR Departments\r\n-IT Departments', '2017-08', '2017-09'),
+(2, 1, 'Traniee', 'GANOP', '-IT Department\n-ERP Team\n-Network Team', '2018-07', '2018-08'),
+(3, 5, 'Trainee', 'National Bank of Egypt(NBE)', '-Customer Service\n-Operations\n-IT Department', '2017-07', '2017-08'),
+(4, 5, 'Trainee', 'GANOP', '-IT Department\n-ERP Team\n-Network & Secuirty', '2018-08', '2018-09');
 
 -- --------------------------------------------------------
 
@@ -85,8 +123,9 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `job_title`, `job_field`, `company_name`, `requirements`, `about`, `image`, `location`) VALUES
-(1, 'Manager', 'ERP', 'SAP', 'ABES,ITI', 'this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job is', 'uploads\\2019-05-17T18-58-19.078Z58549573_645065285956834_1532393285526487040_n.jpg', 'Ein shams'),
-(2, 'Manager', 'ERP', 'Orcal', 'ABES,ITI', 'this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job isis job is this job is this job is this job is this job is this job is this job is', 'uploads\\2019-05-17T22-37-22.218Z58549573_645065285956834_1532393285526487040_n.jpg', 'Maadi');
+(1, 'Manager', 'ERP', 'SAP Company', '-Experience with SAP ECC\r\n-Knowledge in SAP BASIS, RE-FX, FI-CO, MM', 'A SAP manager is responsible for providing technical direction and control of project personnel and for providing a framework for project planning, communications, procedural and contractual activity. his duty is to organize and lead a cross-functional team in developing and implementing project deliverables. A SAP manager works with the client to identify business requirements and develop the proposal. Also develops work plans, managing deadlines and coordinate the project team and sub-team activities A SAP manager estimates project skill requirements, works with deployment to identify appropriate resources and manages their integration into the team.', 'uploads\\2019-05-30T00-35-28.728Z58549573_645065285956834_1532393285526487040_n.jpg', 'The 47th building 6th Floor,\r\nN 90th Street'),
+(2, 'Software Development', 'IT', 'Alshaya Group', '-Degree in Computer Science\r\n-Excellent problem solving skills\r\n-Good knowledge of internet security ', 'Alshaya IT is a diverse organisation supporting corporate, warehouse and retail specific IT infrastructure and systems. We have software teams creating and developing in-house applications and product teams optimising and integrating major third party solutions. The rate of growth across divisions and geographies means we are constantly evaluating how we provide robust, scalable and business enabling infrastructure and systems in line with global benchmark standards.', 'uploads\\2019-05-30T22-52-50.577ZRicardo.jpg', 'The 47th building, 5th settlement'),
+(3, 'HR Manager', 'Human Resourses', 'GMS Company', '-Degree in Bussnies field\n-HR Certificate\n-Good communication/presentation skills.\n', 'Human resources specialists are responsible for recruiting, screening, interviewing and placing workers. They may also handle employee relations, payroll, benefits, and training. Human resources managers plan, direct and coordinate the administrative functions of an organization. They oversee specialists in their duties; consult with executives on strategic planning, and link a company\'s management with its employees.', 'uploads\\2019-05-30T23-07-02.116ZAkankashaD-HR-Shutterstock-700x420.jpg', '3088, El Me’rag City');
 
 -- --------------------------------------------------------
 
@@ -132,9 +171,10 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id`, `user_id`, `first_name`, `last_name`, `phone`, `birthdate`, `address`, `interests`, `featured_skills`, `image`) VALUES
-(3, 1, 'Mohamed', 'Khaled', '01110560063', '2/4/1997', 'ein shams', 'ERP,Web-Development,Security', 'Hardworker self learning team working', 'uploads\\2019-04-30T07-09-46.302Zavatar.jpeg'),
+(3, 1, 'Mohamed', 'Khaled', '01110560063', '2/4/1997', 'Ein Shams', 'Finance,Information System,ERP,Web-Development,Security', 'Hardworker ,self learning ,team working', 'uploads\\2019-04-30T07-09-46.302Zavatar.jpeg'),
 (4, 2, 'Allaa', 'Magdy', '01282317121', '14/7/1997', 'El Mokattam', 'Buisness,Finance,Information System', '-Creativity  -Problem Solving -self learning', 'uploads\\2019-05-02T13-48-21.370ZWhatsApp Image 2019-05-02 at 3.43.32 PM.jpeg'),
-(5, 3, 'test', 'test', '1234567890', '00/00/00', 'test', 'Finance,ERP', 'test test', 'uploads\\2019-05-02T21-19-33.884Zlogo.png');
+(6, 4, 'test1', 'test1', '12345', '10/10/1999', 'test1', 'Buisness,Information System,ERP', 'anything,anyting', 'uploads\\2019-05-29T21-28-25.089Z19895014_1504113512979571_2963850460992592181_n.jpg'),
+(7, 5, 'Mohamed', 'Khaled', '01110560063', '02/04/1997', '5th settlement', 'Buisness,Information System,ERP', 'Self-learning,Team work, Leadership', 'uploads\\2019-05-30T21-17-42.821Z19895014_1504113512979571_2963850460992592181_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,8 +186,30 @@ CREATE TABLE `rate` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
-  `rate` float NOT NULL
+  `rate` float NOT NULL,
+  `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rate`
+--
+
+INSERT INTO `rate` (`id`, `user_id`, `course_id`, `rate`, `description`) VALUES
+(1, 1, 1, 3, 'asldnaksndjasdad'),
+(2, 1, 1, 3, ''),
+(3, 1, 1, 5, ''),
+(4, 1, 1, 2, ''),
+(5, 1, 1, 5, ''),
+(6, 1, 4, 5, ''),
+(7, 1, 5, 3, ''),
+(8, 1, 5, 4, ''),
+(9, 1, 3, 5, ''),
+(10, 5, 6, 4, ''),
+(11, 5, 6, 4, ''),
+(12, 5, 3, 4, ''),
+(13, 5, 3, 3, ''),
+(14, 5, 3, 4, ''),
+(15, 5, 3, 5, '');
 
 -- --------------------------------------------------------
 
@@ -171,7 +233,20 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `type`, `created_at`) VALUES
 (1, 'Mohamedkhaled', 'Mohamed@Bis.com', '$2a$10$oy37gj5T8BQq2wnZuY2epuAgLUPyvjg7OlXMjkyGOuXktfHPKBpsG', 0, '2019-04-30 07:08:25'),
 (2, 'Allaa Magdy', 'Allaa@Bis.com', '$2a$10$/hCXX6JfgSjBDftkCtLZ8.qzrNNZy5Zsqt5E1KFFC/rgBuVvPgsyC', 0, '2019-05-02 13:22:30'),
-(3, 'test', 'test@bis.com', '$2a$10$/Yry0ckxADMoO4BtzVEzmuSENoaBp9XAFPXTf8bVHKIWZQ9ovi8oC', 0, '2019-05-02 21:17:25');
+(4, 'Test1', 'test1@Bis.com', '$2a$10$8LZC958.EArGO0HBAQ0leehhFf2LFBbTD5btM9Gtjo1aTCBLAoRI2', 0, '2019-05-29 21:27:30'),
+(5, 'Mohamed Khaled', 'Mohamedkhaled@Bis.com', '$2a$10$N1fimPSlYEzwPM0gVHjjme8nGqP50EiG3/.vUaL08kCB9Laqh08.y', 0, '2019-05-30 21:16:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `views`
+--
+
+CREATE TABLE `views` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `viewer_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -184,12 +259,18 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `followers`
+-- Indexes for table `education`
 --
-ALTER TABLE `followers`
+ALTER TABLE `education`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `col_user_follower` (`user_id`),
-  ADD KEY `col_follower_user` (`follower_id`);
+  ADD KEY `col_user_education` (`user_id`);
+
+--
+-- Indexes for table `experience`
+--
+ALTER TABLE `experience`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `col_user_experience` (`user_id`);
 
 --
 -- Indexes for table `jobs`
@@ -223,6 +304,14 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `views`
+--
+ALTER TABLE `views`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `col_user_follower` (`user_id`),
+  ADD KEY `col_follower_user` (`viewer_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -233,16 +322,22 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `followers`
+-- AUTO_INCREMENT for table `education`
 --
-ALTER TABLE `followers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `education`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `experience`
+--
+ALTER TABLE `experience`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `newsfeed`
@@ -254,36 +349,54 @@ ALTER TABLE `newsfeed`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rate`
 --
 ALTER TABLE `rate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `views`
+--
+ALTER TABLE `views`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `followers`
+-- Constraints for table `education`
 --
-ALTER TABLE `followers`
-  ADD CONSTRAINT `col_follower_user` FOREIGN KEY (`follower_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `col_user_follower` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `education`
+  ADD CONSTRAINT `col_user_education` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `experience`
+--
+ALTER TABLE `experience`
+  ADD CONSTRAINT `col_user_experience` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `profile`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `views`
+--
+ALTER TABLE `views`
+  ADD CONSTRAINT `col_follower_user` FOREIGN KEY (`viewer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `col_user_follower` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

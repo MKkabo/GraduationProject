@@ -1,5 +1,5 @@
+import { TabsPage } from './../tabs/tabs';
 import { StoreProvider } from './../../providers/store/store';
-import { profilePage } from './../profile/profile';
 import { DbProvider } from './../../providers/db/db';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -27,7 +27,7 @@ export class AddExperiencePage {
     f.value['user_id'] = this.store.getUserId();
     this.db.addExperience(f.value).subscribe(res => {
       console.log(res);
-      this.navCtrl.setRoot(profilePage);
+      this.navCtrl.setRoot(TabsPage);
     })
   }
 
