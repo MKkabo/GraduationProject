@@ -1,4 +1,4 @@
-import { profilePage } from './../profile/profile';
+import { TabsPage } from './../tabs/tabs';
 import { DbProvider } from './../../providers/db/db';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -71,7 +71,7 @@ export class EditProfilePage {
 
     this.db.updateProfile(profile).subscribe(result => {
       // Go To profile Page
-      this.navCtrl.setRoot(profilePage)
+      this.navCtrl.setRoot(TabsPage);
     })
 
   }

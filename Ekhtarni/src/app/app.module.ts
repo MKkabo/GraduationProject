@@ -1,3 +1,4 @@
+import { EditExperiencePage } from './../pages/edit-experience/edit-experience';
 import { AddEducationPage } from './../pages/add-education/add-education';
 import { AddExperiencePage } from './../pages/add-experience/add-experience';
 import { PopoverComponent } from './../components/popover/popover';
@@ -50,7 +51,8 @@ import { EditEducationPage } from '../pages/edit-education/edit-education';
     EditProfilePage,
     AddExperiencePage,
     AddEducationPage,
-    EditEducationPage
+    EditEducationPage,
+    EditExperiencePage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { EditEducationPage } from '../pages/edit-education/edit-education';
     EditProfilePage,
     AddExperiencePage,
     AddEducationPage,
-    EditEducationPage
+    EditEducationPage,
+    EditExperiencePage
   ],
   providers: [
     StatusBar,

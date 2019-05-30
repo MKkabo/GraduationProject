@@ -1,3 +1,4 @@
+import { EditExperiencePage } from './../edit-experience/edit-experience';
 import { AddEducationPage } from './../add-education/add-education';
 import { AddExperiencePage } from './../add-experience/add-experience';
 import { EditProfilePage } from './../edit-profile/edit-profile';
@@ -62,6 +63,11 @@ export class profilePage {
   goToEditEducation(edu) {
     this.navCtrl.push(EditEducationPage, {
       education: edu
+    })
+  }
+  goToEditExperience(exp) {
+    this.navCtrl.push(EditExperiencePage, {
+      experience: exp
     })
   }
 

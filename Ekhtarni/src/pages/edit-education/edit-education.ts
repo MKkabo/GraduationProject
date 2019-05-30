@@ -1,15 +1,10 @@
+import { TabsPage } from './../tabs/tabs';
 import { DbProvider } from './../../providers/db/db';
 import { StoreProvider } from './../../providers/store/store';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { profilePage } from '../profile/profile';
 
-/**
- * Generated class for the EditEducationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -18,7 +13,8 @@ import { profilePage } from '../profile/profile';
 })
 export class EditEducationPage {
   education: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private store: StoreProvider, private db: DbProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private store: StoreProvider,
+     private db: DbProvider) {
     this.education = navParams.get('education');
   }
 
@@ -31,7 +27,7 @@ export class EditEducationPage {
     // console.log(f.value);
     this.db.editEducation(this.education.id, f.value).subscribe(res => {
       console.log(res);
-      this.navCtrl.setRoot(profilePage);
+      this.navCtrl.setRoot(TabsPage);
     })
   }
 

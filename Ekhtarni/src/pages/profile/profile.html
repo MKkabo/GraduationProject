@@ -32,7 +32,7 @@
 
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Personal Information</ion-card-title>
+        <ion-card-title color="primary">Personal Information</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
@@ -64,56 +64,65 @@
       </ion-card-content>
     </ion-card>
 
-    <h3>Education</h3>
-    <button ion-button (click)="goToAddEducation()">
-      <ion-icon name="add-circle"></ion-icon>
-    </button>
-    <ng-template [ngIf]="education">
-      <ion-card *ngFor="let edu of education">
-        <button ion-button (click)="goToEditEducation(edu)">
-            <ion-icon name="create"></ion-icon>
+    <ion-card class="edu">
+        <ion-card-title color="primary">Education</ion-card-title>
+        <ion-buttons right>
+        <button ion-button  (click)="goToAddEducation()" >
+          <ion-icon name="add-circle"></ion-icon>
         </button>
-        <ion-card-header>
-          <ion-card-title>{{ edu.school_name }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-list>
-            <ion-item>
-              <ion-label>
-                {{ edu.degree }} <br> {{ edu.startDate }} | {{ edu.endDate }}
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
+      </ion-buttons>
+        <ng-template [ngIf]="education">
+          <ion-card *ngFor="let edu of education">
+            
+            <ion-card-content>
+               <ion-buttons right>
+                      <button ion-button (click)="goToEditEducation(edu)">
+                          <ion-icon name="create"></ion-icon>
+                      </button>
+                      </ion-buttons>
+              <ion-list>
+                <ion-item>
+                  <ion-label>
+                      {{ edu.school_name }} <br>{{ edu.degree }} <br> {{ edu.startDate }} | {{ edu.endDate }}
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ng-template>
       </ion-card>
-    </ng-template>
 
-
-    <h3>Experience</h3>
+    <ion-card class="exp">
+    <ion-card-title color="primary">Experience</ion-card-title>
+    <ion-buttons right>
     <button ion-button (click)="goToAddExperience()">
       <ion-icon name="add-circle"></ion-icon>
     </button>
+  </ion-buttons>
     <ng-template [ngIf]="experience">
       <ion-card *ngFor="let exp of experience">
-        <ion-card-header>
-          <ion-card-title>{{ exp.job_title }}</ion-card-title>
-        </ion-card-header>
+          <ion-buttons right>
+          <button ion-button (click)="goToEditExperience(exp)">
+              <ion-icon name="create"></ion-icon>
+          </button>
+          </ion-buttons>
         <ion-card-content>
           <ion-list>
             <ion-item>
               <ion-label>
-                {{ exp.company_name }} <br> {{ exp.startDate }} | {{ exp.endDate }}
+                  {{ exp.job_title }}<br>{{ exp.company_name }} <br> {{ exp.startDate }} | {{ exp.endDate }}
               </ion-label>
             </ion-item>
-            <ion-item>
-              <p style="white-space: pre-wrap">
+            <!-- <ion-label>
+              <p>
                 {{ exp.description }}
               </p>
-            </ion-item>
+            </ion-label> -->
           </ion-list>
         </ion-card-content>
       </ion-card>
     </ng-template>
+  </ion-card>
 
     <!-- <ion-card>
       <ion-card-header>
@@ -137,25 +146,22 @@
     </ion-card> -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Featured Skills</ion-card-title>
+        <ion-card-title color="primary">Featured Skills</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>
-              <p *ngFor="let feature of user.featured_skills.split(',')">
+          <ion-list>
+              <ion-item *ngFor="let feature of user.featured_skills.split(',')">
+                <ion-label >
                 {{ feature }}
-              </p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-
+              </ion-label>
+              </ion-item>
+              </ion-list>
       </ion-card-content>
     </ion-card>
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Intrested Fields</ion-card-title>
+        <ion-card-title color="primary">Intrested Fields</ion-card-title>
       </ion-card-header>
       <ion-card-content>
 
