@@ -1,8 +1,9 @@
+import { LoginPage } from './../login/login';
 import { StoreProvider } from './../../providers/store/store';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
-import { TabsPage } from '../tabs/tabs';
+
 
 
 @IonicPage()
@@ -78,7 +79,7 @@ export class InterestPage {
       console.log(fd);
       console.log(profile);
       if (res['success'] === true) {
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(LoginPage);
       }
     })
   }
